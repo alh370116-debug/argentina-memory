@@ -1,0 +1,1633 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARGENTINA'S MEMORY</title>
+<meta name="description" content="Argentina's Memory — iconic matches from Copa América 2021, Finalissima 2022 and Qatar 2022.">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap');
+
+:root{
+--sky:#8edcff;
+--gold:#f4cf68;
+--white:#f8fbff;
+--bg:#020811;
+--panel:rgba(8,20,33,.78);
+--line:rgba(190,230,255,.16);
+--muted:#9bb1c3
+}
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0
+}
+
+html{
+scroll-behavior:smooth
+}
+
+body{
+font-family:Inter,Arial,sans-serif;
+background:var(--bg);
+color:var(--white);
+overflow-x:hidden
+}
+
+body:before{
+content:"";
+position:fixed;
+inset:0;
+z-index:-5;
+background:
+radial-gradient(circle at 12% 15%,rgba(85,190,255,.17),transparent 28%),
+radial-gradient(circle at 88% 30%,rgba(245,207,104,.09),transparent 24%),
+linear-gradient(145deg,#020711,#071827 52%,#02060c)
+}
+
+body:after{
+content:"";
+position:fixed;
+inset:0;
+z-index:50;
+pointer-events:none;
+opacity:.025;
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")
+}
+
+button{
+font:inherit
+}
+
+.topline{
+position:fixed;
+z-index:100;
+top:0;
+left:0;
+width:100%;
+height:3px;
+background:linear-gradient(90deg,var(--sky),white,var(--gold))
+}
+
+.nav{
+position:fixed;
+z-index:90;
+top:3px;
+left:0;
+width:100%;
+height:72px;
+background:rgba(2,8,15,.72);
+backdrop-filter:blur(18px);
+border-bottom:1px solid var(--line)
+}
+
+.navin{
+height:100%;
+max-width:1240px;
+margin:auto;
+padding:0 22px;
+display:flex;
+align-items:center;
+justify-content:space-between
+}
+
+.logo{
+font-weight:900;
+letter-spacing:.1em;
+font-size:13px
+}
+
+.logo b{
+color:var(--sky)
+}
+
+.links{
+display:flex;
+gap:5px
+}
+
+.links button,
+.back{
+border:0;
+background:transparent;
+color:#afc4d4;
+padding:10px 13px;
+border-radius:12px;
+cursor:pointer;
+transition:.3s
+}
+
+.links button:hover,
+.back:hover{
+background:rgba(255,255,255,.06);
+color:#fff
+}
+
+.wrap{
+max-width:1240px;
+margin:auto;
+padding:0 22px
+}
+
+.hidden{
+display:none!important
+}
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+padding:125px 0 70px
+}
+
+.heroGrid{
+display:grid;
+grid-template-columns:1.2fr .8fr;
+gap:55px;
+align-items:center
+}
+
+.eyebrow{
+font-size:11px;
+letter-spacing:.24em;
+text-transform:uppercase;
+color:var(--gold);
+font-weight:900;
+margin-bottom:18px
+}
+
+h1{
+font-family:"Playfair Display",serif;
+font-size:clamp(60px,9vw,135px);
+line-height:.82;
+letter-spacing:-.065em
+}
+
+h1 span,
+.sky{
+color:var(--sky)
+}
+
+.lead{
+color:#b4c9d9;
+line-height:1.85;
+font-size:17px;
+max-width:760px;
+margin-top:30px
+}
+
+.actions{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+margin-top:30px
+}
+
+.btn{
+border:1px solid rgba(190,230,255,.22);
+background:rgba(255,255,255,.055);
+color:#fff;
+padding:13px 18px;
+border-radius:13px;
+cursor:pointer;
+transition:.3s ease
+}
+
+.btn:hover{
+transform:translateY(-3px);
+background:rgba(255,255,255,.12);
+box-shadow:0 10px 25px rgba(142,220,255,.15)
+}
+
+.btn.primary{
+background:linear-gradient(135deg,#e9fbff,#8edcff);
+color:#06111d;
+border:0;
+font-weight:900
+}
+
+.heroCard{
+min-height:420px;
+border:1px solid var(--line);
+border-radius:30px;
+padding:30px;
+background:linear-gradient(145deg,rgba(142,220,255,.12),rgba(255,255,255,.025));
+box-shadow:0 30px 90px rgba(0,0,0,.45);
+position:relative;
+overflow:hidden;
+transition:.4s ease
+}
+
+.heroCard:hover{
+transform:translateY(-5px);
+border-color:rgba(142,220,255,.4)
+}
+
+.ball{
+width:165px;
+height:165px;
+border-radius:50%;
+margin:28px auto;
+background:
+radial-gradient(circle at 34% 28%,#fff 0 4%,transparent 5%),
+radial-gradient(circle,#17364d 0 13%,transparent 14%),
+linear-gradient(145deg,#fff,#a9e7ff);
+box-shadow:0 0 90px rgba(142,220,255,.3);
+animation:floatBall 4s ease-in-out infinite
+}
+
+@keyframes floatBall{
+0%,100%{
+transform:translateY(0) rotate(0deg)
+}
+50%{
+transform:translateY(-12px) rotate(5deg)
+}
+}
+
+.heroCard h3{
+font-size:24px
+}
+
+.heroCard p{
+color:var(--muted);
+line-height:1.7;
+margin-top:10px;
+font-size:14px
+}
+
+section{
+padding:100px 0
+}
+
+.sectionHead{
+display:flex;
+justify-content:space-between;
+gap:30px;
+align-items:end;
+margin-bottom:35px
+}
+
+.sectionHead h2{
+font-family:"Playfair Display",serif;
+font-size:clamp(42px,5vw,68px);
+line-height:.9
+}
+
+.sectionHead>p{
+max-width:560px;
+color:var(--muted);
+line-height:1.75
+}
+
+.tournament{
+border:1px solid var(--line);
+border-radius:28px;
+overflow:hidden;
+background:var(--panel);
+box-shadow:0 30px 90px rgba(0,0,0,.4);
+margin-bottom:40px
+}
+
+.tHead{
+padding:30px;
+background:linear-gradient(135deg,rgba(142,220,255,.1),rgba(255,255,255,.015));
+display:flex;
+justify-content:space-between;
+gap:20px;
+align-items:end
+}
+
+.tag{
+font-size:10px;
+color:var(--gold);
+font-weight:900;
+letter-spacing:.2em;
+text-transform:uppercase
+}
+
+.tHead h3{
+font-size:29px;
+margin-top:8px
+}
+
+.tHead p{
+color:var(--muted);
+font-size:13px;
+margin-top:7px
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:1px;
+background:var(--line)
+}
+
+.card{
+min-height:310px;
+background:rgba(4,13,23,.9);
+padding:29px;
+cursor:pointer;
+position:relative;
+transition:all .35s ease
+}
+
+.card:hover{
+background:rgba(14,36,54,.95);
+transform:translateY(-4px);
+box-shadow:0 15px 35px rgba(0,0,0,.5)
+}
+
+.card.feature{
+background:linear-gradient(145deg,rgba(142,220,255,.11),rgba(255,255,255,.02))
+}
+
+.card.feature:after{
+content:"FEATURED";
+position:absolute;
+right:20px;
+top:20px;
+color:var(--gold);
+font-size:9px;
+font-weight:900;
+letter-spacing:.18em
+}
+
+.round{
+font-size:10px;
+letter-spacing:.18em;
+color:var(--gold);
+font-weight:900;
+text-transform:uppercase
+}
+
+.teams{
+font-family:"Playfair Display",serif;
+font-size:31px;
+margin-top:25px
+}
+
+.score{
+font-size:46px;
+font-weight:900;
+margin-top:5px
+}
+
+.venue{
+font-size:11px;
+color:#8099ac;
+margin-top:8px
+}
+
+.teaser{
+font-size:14px;
+line-height:1.65;
+color:#adc3d2;
+margin-top:18px
+}
+
+.open{
+font-size:10px;
+letter-spacing:.16em;
+color:var(--sky);
+font-weight:900;
+margin-top:20px;
+display:inline-block;
+transition:.3s
+}
+
+.card:hover .open{
+transform:translateX(6px)
+}
+
+#matchView{
+padding-top:75px
+}
+
+.matchHero{
+min-height:78vh;
+display:flex;
+align-items:center;
+border-bottom:1px solid var(--line);
+position:relative;
+overflow:hidden
+}
+
+.matchHero:before{
+content:"";
+position:absolute;
+inset:0;
+background:radial-gradient(circle at 50% 45%,rgba(142,220,255,.13),transparent 42%)
+}
+
+.matchHeroIn{
+max-width:1240px;
+width:100%;
+margin:auto;
+padding:65px 22px;
+position:relative
+}
+
+.matchTitle{
+font-family:"Playfair Display",serif;
+font-size:clamp(50px,8vw,112px);
+line-height:.87;
+letter-spacing:-.06em;
+max-width:1100px
+}
+
+.matchTitle span{
+color:var(--sky)
+}
+
+.result{
+display:flex;
+align-items:center;
+gap:18px;
+flex-wrap:wrap;
+margin-top:30px
+}
+
+.resultScore{
+font-size:58px;
+font-weight:900
+}
+
+.badge{
+border:1px solid rgba(244,207,104,.35);
+color:var(--gold);
+padding:8px 12px;
+border-radius:999px;
+font-size:10px;
+font-weight:900;
+letter-spacing:.15em
+}
+
+.meta{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+color:#829bad;
+font-size:12px;
+margin-top:16px
+}
+
+.story{
+max-width:1050px;
+margin:auto;
+padding:75px 22px
+}
+
+.storyTop{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:15px
+}
+
+.story h2{
+font-family:"Playfair Display",serif;
+font-size:50px;
+margin-bottom:20px
+}
+
+.story h3{
+font-size:23px;
+color:var(--sky);
+margin:42px 0 12px
+}
+
+.story p{
+color:#bfd0dc;
+font-size:16px;
+line-height:1.95;
+margin-bottom:16px
+}
+
+.lang{
+display:flex;
+gap:6px
+}
+
+.lang button{
+border:1px solid var(--line);
+background:rgba(255,255,255,.04);
+color:#9eb5c6;
+padding:8px 12px;
+border-radius:10px;
+cursor:pointer;
+transition:.3s
+}
+
+.lang button.active{
+background:var(--sky);
+color:#06111d;
+border-color:var(--sky);
+font-weight:900
+}
+
+.moments{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
+margin:35px 0 60px
+}
+
+.moment{
+border:1px solid var(--line);
+border-radius:18px;
+background:rgba(255,255,255,.035);
+padding:20px;
+transition:.3s
+}
+
+.moment:hover{
+background:rgba(255,255,255,.07);
+transform:translateY(-3px)
+}
+
+.moment b{
+display:block;
+color:var(--gold);
+font-size:12px;
+margin-bottom:8px
+}
+
+.moment span{
+color:#c4d4df;
+font-size:13px;
+line-height:1.55
+}
+
+.gallery{
+margin-top:60px
+}
+
+.gallery p{
+font-size:13px;
+color:#839aaa
+}
+
+.photos{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
+margin-top:22px
+}
+
+.photo{
+aspect-ratio:16/10;
+border:1px solid var(--line);
+border-radius:17px;
+overflow:hidden;
+background:linear-gradient(135deg,rgba(142,220,255,.08),rgba(255,255,255,.02));
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:#678195;
+font-size:11px;
+padding:10px;
+transition:.3s
+}
+
+.photo:hover{
+transform:scale(1.02);
+border-color:rgba(142,220,255,.4)
+}
+
+.photo img{
+width:100%;
+height:100%;
+object-fit:cover
+}
+
+.next{
+border-top:1px solid var(--line);
+padding:45px 22px;
+display:flex;
+justify-content:space-between;
+gap:15px;
+max-width:1050px;
+margin:auto
+}
+
+.next button{
+border:1px solid var(--line);
+background:rgba(255,255,255,.04);
+color:white;
+padding:13px 16px;
+border-radius:12px;
+cursor:pointer;
+transition:.3s
+}
+
+.next button:hover{
+background:rgba(255,255,255,.09);
+transform:translateY(-2px)
+}
+
+footer{
+border-top:1px solid var(--line);
+padding:55px 22px;
+text-align:center;
+color:#71889a;
+font-size:11px;
+letter-spacing:.14em
+}
+
+footer strong{
+color:#dceff9
+}
+
+/* ANIMATIONS */
+
+.reveal{
+opacity:0;
+transform:translateY(35px);
+transition:all .8s cubic-bezier(.16,1,.3,1)
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0)
+}
+
+.fade-in{
+opacity:0;
+transition:opacity .6s ease-in-out
+}
+
+.fade-in.active{
+opacity:1
+}
+
+/* MOBILE */
+
+@media(max-width:820px){
+
+.links{
+display:none
+}
+
+.heroGrid{
+grid-template-columns:1fr
+}
+
+.heroCard{
+min-height:330px
+}
+
+.grid{
+grid-template-columns:1fr
+}
+
+.sectionHead{
+display:block
+}
+
+.sectionHead>p{
+margin-top:16px
+}
+
+.moments,
+.photos{
+grid-template-columns:1fr
+}
+
+.matchTitle{
+font-size:55px
+}
+
+.storyTop{
+align-items:flex-start;
+flex-direction:column
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="topline"></div>
+
+<nav class="nav">
+<div class="navin">
+
+<div class="logo">
+ARGENTINA <b>✦</b> MEMORY
+</div>
+
+<div class="links">
+<button onclick="home()">HOME</button>
+<button onclick="go('copa')">COPA 2021</button>
+<button onclick="go('finalissima')">FINALISSIMA</button>
+<button onclick="go('worldcup')">WORLD CUP</button>
+</div>
+
+</div>
+</nav>
+
+
+<main id="homeView">
+
+<section class="hero">
+
+<div class="wrap heroGrid">
+
+<div class="reveal">
+
+<div class="eyebrow">
+A football memory archive · 2021—2022
+</div>
+
+<h1>
+ARGENTINA'S<br>
+<span>MEMORY.</span>
+</h1>
+
+<p class="lead">
+Iconic nights. Copa América glory, Wembley dominance,
+a World Cup quarter-final thriller, the semi-final command,
+and the ultimate World Cup final crowned in glory.
+</p>
+
+<div class="actions">
+
+<button class="btn primary" onclick="go('copa')">
+ENTER THE ARCHIVE →
+</button>
+
+<button class="btn" onclick="openMatch('wc-final')">
+REVEAL THE FINAL
+</button>
+
+</div>
+
+</div>
+
+
+<div class="heroCard reveal">
+
+<div class="eyebrow">
+THE ERA
+</div>
+
+<div class="ball"></div>
+
+<h3>
+From Maracanã to Qatar
+</h3>
+
+<p>
+Matches that capture the rise of Scaloni's Argentina
+and the ultimate crowning of Lionel Messi on football's
+greatest stage.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="copa">
+
+<div class="wrap">
+
+<div class="sectionHead reveal">
+
+<div>
+
+<div class="eyebrow">
+CHAPTER I
+</div>
+
+<h2>
+COPA AMÉRICA<br>
+2021
+</h2>
+
+</div>
+
+<p>
+Only the final is included here: the night Argentina defeated Brazil
+at the Maracanã and ended a 28-year wait for a senior men's major trophy.
+</p>
+
+</div>
+
+
+<div class="tournament reveal">
+
+<div class="tHead">
+
+<div>
+
+<div class="tag">
+FINAL · RIO DE JANEIRO
+</div>
+
+<h3>
+Argentina vs Brazil
+</h3>
+
+<p>
+Open the match for the full documentary story.
+</p>
+
+</div>
+
+<div class="badge">
+1 MATCH
+</div>
+
+</div>
+
+<div class="grid" id="copaGrid"></div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="finalissima">
+
+<div class="wrap">
+
+<div class="sectionHead reveal">
+
+<div>
+
+<div class="eyebrow">
+CHAPTER II
+</div>
+
+<h2>
+FINALISSIMA<br>
+2022
+</h2>
+
+</div>
+
+<p>
+South American champions Argentina against European champions Italy
+at Wembley in the inaugural Finalissima.
+</p>
+
+</div>
+
+
+<div class="tournament reveal">
+
+<div class="grid" id="finalGrid"></div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="worldcup">
+
+<div class="wrap">
+
+<div class="sectionHead reveal">
+
+<div>
+
+<div class="eyebrow">
+CHAPTER III
+</div>
+
+<h2>
+QATAR<br>
+2022
+</h2>
+
+</div>
+
+<p>
+The immortal campaign: the chaotic quarter-final,
+the commanding semi-final, and the greatest final in World Cup history.
+</p>
+
+</div>
+
+
+<div class="tournament reveal">
+
+<div class="tHead">
+
+<div>
+
+<div class="tag">
+KNOCKOUT & FINAL
+</div>
+
+<h3>
+The road to ultimate glory
+</h3>
+
+<p>
+Quarter-final, semi-final, and the historic final —
+each with its own long-form story.
+</p>
+
+</div>
+
+<div class="badge">
+3 MATCHES
+</div>
+
+</div>
+
+<div class="grid" id="wcGrid"></div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+ARGENTINA'S MEMORY ·
+<strong>DEVELOPED BY ELITE HASIB</strong>
+</footer>
+
+</main>
+
+
+<main id="matchView" class="hidden"></main>
+
+
+<script>
+
+/* =========================================================
+   MATCH DATA
+========================================================= */
+
+const DATA=[
+
+{
+id:"copa-final",
+comp:"COPA AMÉRICA 2021",
+round:"FINAL · FEATURED",
+teams:"Brazil 0 — 1 Argentina",
+score:"0–1",
+date:"10 July 2021",
+venue:"Maracanã Stadium · Rio de Janeiro",
+
+/* YOUR REAL IMAGE FILES */
+photos:[
+"arg vs brasil 3.jfif",
+"arg vs bra.jfif",
+"arg vs brasil 2.jfif",
+"arg vs brasil.jfif"
+],
+
+teaser:
+"Ángel Di María's first-half finish gave Argentina victory over Brazil and ended a 28-year wait for a major senior international trophy.",
+
+moments:[
+["22'","Ángel Di María controls Rodrigo De Paul's long pass and chips Ederson."],
+["2ND HALF","Brazil increase the pressure while Argentina defend their narrow lead."],
+["FT","Argentina win 1–0 and lift the Copa América."]
+],
+
+en:[
+["THE NIGHT BEFORE HISTORY","The Maracanã was the stage, Brazil were the hosts, and Argentina had one enormous objective: win a senior international trophy. For Lionel Messi and a generation that had endured repeated disappointments, this was another final — but it felt different. Lionel Scaloni's team had developed a stronger collective identity, with a midfield capable of competing and a defence willing to suffer together."],
+["THE OPENING PHASE","Brazil started with energy, but Argentina did not retreat into their shell. The match became a battle of small spaces, duels and moments. Argentina looked for transitions whenever Brazil pushed forward, while Messi moved across the attacking line looking for room."],
+["DI MARÍA'S MOMENT","In the 22nd minute, Rodrigo De Paul delivered a long pass into the space behind Brazil's defence. Ángel Di María timed his run perfectly, controlled the ball and lifted a delicate finish over Ederson. Argentina were suddenly 1–0 ahead in the biggest stadium imaginable."],
+["THE SECOND HALF","Brazil had to chase the match. Their attacking talent created pressure, but Argentina's compact defensive structure repeatedly blocked the most dangerous routes toward goal. The players fought for every loose ball and every second ball, knowing that one mistake could change everything."],
+["THE FINAL MINUTES","As the clock moved toward full time, the tension became enormous. Argentina continued to defend their advantage while Brazil searched for an equaliser. Messi even had a late opportunity after breaking forward, but the finish did not come. The single goal was still enough."],
+["THE FINAL WHISTLE","When the whistle finally arrived, Argentina had won 1–0. The team became Copa América champions and, crucially, ended Argentina's 28-year wait for a senior men's major international trophy. For Messi, it was his first major senior international title with Argentina."],
+["WHY THIS MATCH LIVES FOREVER","The Maracanã final changed the emotional story around the national team. It was not only a trophy; it was proof that this group could survive a final, defend a lead and finish a tournament together. The victory became the foundation for what followed at Wembley and Qatar."]
+],
+
+bn:[
+["ইতিহাসের আগের রাত","মারাকানা ছিল মঞ্চ, সামনে ছিল স্বাগতিক ব্রাজিল, আর আর্জেন্টিনার লক্ষ্য ছিল একটাই—একটি বড় আন্তর্জাতিক ট্রফি জেতা। লিওনেল মেসি ও তাঁর প্রজন্মের জন্য এটি ছিল আরেকটি ফাইনাল, কিন্তু পরিস্থিতি এবার কিছুটা আলাদা ছিল। লিওনেল স্কালোনির দল তখন অনেক বেশি সংগঠিত; মিডফিল্ডে লড়াই করার ক্ষমতা এবং একসঙ্গে রক্ষণ করার মানসিকতা তৈরি হয়েছিল।"],
+["শুরুর লড়াই","ব্রাজিল শুরু থেকেই আক্রমণাত্মক ছিল, কিন্তু আর্জেন্টিনা শুধু রক্ষণে বসে থাকেনি। ম্যাচটি ছোট ছোট জায়গা, দ্বৈরথ এবং মুহূর্তের লড়াইয়ে পরিণত হয়। ব্রাজিল সামনে উঠলে আর্জেন্টিনা দ্রুত পাল্টা আক্রমণের সুযোগ খুঁজছিল, আর মেসি আক্রমণভাগে জায়গা তৈরি করার চেষ্টা করছিলেন।"],
+["দিমারিয়ার মুহূর্ত","২২তম মিনিটে রদ্রিগো দে পল ব্রাজিলের ডিফেন্সের পেছনে দারুণ একটি লম্বা পাস দেন। অ্যাঞ্জেল দি মারিয়া নিখুঁত সময়ে দৌড় শুরু করে বল নিয়ন্ত্রণ করেন এবং এডারসনের মাথার ওপর দিয়ে অসাধারণ এক চিপে বল জালে পাঠান। সবচেয়ে বড় মঞ্চে আর্জেন্টিনা ১–০ এগিয়ে যায়।"],
+["দ্বিতীয়ার্ধ","ব্রাজিলকে এবার গোল করতেই হতো। তাদের আক্রমণাত্মক খেলোয়াড়রা চাপ তৈরি করলেও আর্জেন্টিনার সংগঠিত রক্ষণ বিপজ্জনক পথগুলো বারবার বন্ধ করে দেয়। প্রতিটি বল, প্রতিটি দ্বিতীয় বল এবং প্রতিটি ডুয়েলে খেলোয়াড়রা সর্বস্ব দিয়ে লড়ছিল।"],
+["শেষ মুহূর্ত","সময় যত শেষের দিকে যাচ্ছিল, উত্তেজনা তত বাড়ছিল। আর্জেন্টিনা লিড ধরে রাখার চেষ্টা করছিল আর ব্রাজিল সমতা ফেরানোর জন্য মরিয়া হয়ে উঠেছিল। শেষ দিকে মেসির সামনে সুযোগও এসেছিল, কিন্তু গোল হয়নি। তবুও এক গোলই যথেষ্ট ছিল।"],
+["শেষ বাঁশি","রেফারির শেষ বাঁশির সঙ্গে আর্জেন্টিনা ১–০ ব্যবধানে জয় পায়। তারা কোপা আমেরিকা চ্যাম্পিয়ন হয় এবং ২৮ বছরের অপেক্ষার অবসান ঘটায়। মেসিও আর্জেন্টিনার হয়ে প্রথম বড় সিনিয়র আন্তর্জাতিক ট্রফি জেতেন।"],
+["কেন এই ম্যাচ চিরস্মরণীয়","মারাকানার এই ফাইনাল জাতীয় দলের গল্পটাই বদলে দেয়। এটি শুধু একটি ট্রফি ছিল না; এটি প্রমাণ করেছিল যে এই দল একটি ফাইনালের চাপ সামলাতে পারে, লিড ধরে রাখতে পারে এবং একসঙ্গে টুর্নামেন্ট শেষ করতে পারে। এরপরই আসে ওয়েম্বলি এবং কাতারের গল্প।"]
+]
+},
+
+
+{
+id:"finalissima",
+comp:"FINALISSIMA 2022",
+round:"FINAL · FEATURED",
+teams:"Italy 0 — 3 Argentina",
+score:"0–3",
+date:"1 June 2022",
+venue:"Wembley Stadium · London",
+
+photos:[
+"arg vs italy 3.jfif",
+"arg vs italy 1.jfif",
+"arg vs italy.jfif"
+],
+
+teaser:
+"Lautaro Martínez, Ángel Di María and Paulo Dybala scored as Argentina dominated the European champions at Wembley.",
+
+moments:[
+["28'","Lautaro Martínez finishes after Messi creates the opening."],
+["45+1'","Di María dinks the ball over Donnarumma."],
+["90+4'","Paulo Dybala adds the third."],
+["AWARD","Messi is named Player of the Match."]
+],
+
+en:[
+["A CHAMPIONS' SHOWDOWN","Argentina arrived at Wembley as Copa América champions, while Italy were the reigning European champions after winning EURO 2020. The Finalissima was designed as a one-off meeting between the continental champions, and the atmosphere at Wembley matched the occasion."],
+["ARGENTINA SET THE TONE","From the opening minutes Argentina played with confidence. The team pressed intelligently, moved the ball quickly and repeatedly found Messi between the lines. Di María was also immediately dangerous, even trying an ambitious lob early in the match."],
+["THE FIRST GOAL","After Argentina had already created danger, Messi received the ball and fought his way past pressure before squaring it into the area. Lautaro Martínez arrived at the right moment and finished from close range in the 28th minute."],
+["DI MARÍA BEFORE HALF-TIME","Italy were already struggling to contain Argentina's movement. In first-half stoppage time, Lautaro became the provider. His perfectly weighted ball released Di María, who calmly lifted the finish over Gianluigi Donnarumma. Argentina went into the break 2–0 ahead."],
+["A SECOND-HALF MASTERCLASS","Italy made changes and tried to respond, but Argentina remained in control. Donnarumma made several important saves, including against Messi and Di María. Argentina's midfield — with Rodrigo De Paul, Guido Rodríguez and Giovani Lo Celso — helped keep the game under control."],
+["THE FINAL TOUCH","Italy kept looking for a way back, but Argentina continued to create chances. In the fourth minute of added time, Messi was challenged near the edge of the box and Paulo Dybala collected the loose ball before calmly finishing to make it 3–0."],
+["MESSI'S PERFORMANCE","Messi did not score, but UEFA's Technical Observer panel named him Player of the Match. His movement, chance creation, passing and influence shaped the game from beginning to end."],
+["THE MEMORY","Argentina became the first winners of the relaunched Finalissima, beating Italy 3–0 at Wembley. The performance was a statement: this was no longer only a team that could win a tournament — it was a team capable of controlling elite opposition."]
+],
+
+bn:[
+["দুই মহাদেশের চ্যাম্পিয়নের লড়াই","আর্জেন্টিনা ওয়েম্বলিতে এসেছিল কোপা আমেরিকা চ্যাম্পিয়ন হিসেবে, আর ইতালি ছিল EURO 2020-এর চ্যাম্পিয়ন। Finalissima ছিল দুই মহাদেশের চ্যাম্পিয়নের এক ম্যাচের লড়াই, তাই ম্যাচটির গুরুত্ব ও ওয়েম্বলির পরিবেশ ছিল অসাধারণ।"],
+["শুরু থেকেই আর্জেন্টিনার নিয়ন্ত্রণ","প্রথম মিনিট থেকেই আর্জেন্টিনা আত্মবিশ্বাসের সঙ্গে খেলতে থাকে। তারা বুদ্ধিমান প্রেসিং করে, দ্রুত বল সরায় এবং বারবার মেসিকে লাইনের মাঝখানে বল দেওয়ার সুযোগ তৈরি করে। দি মারিয়াও শুরু থেকেই বিপজ্জনক ছিলেন।"],
+["প্রথম গোল","মেসি চাপের মধ্যেও বল নিয়ন্ত্রণ করে জায়গা তৈরি করেন এবং বক্সে বল বাড়িয়ে দেন। ২৮তম মিনিটে লাওতারো মার্টিনেজ সঠিক জায়গায় পৌঁছে কাছ থেকে বল জালে পাঠান।"],
+["হাফটাইমের আগে দি মারিয়া","ইতালির ডিফেন্স আর্জেন্টিনার মুভমেন্ট সামলাতে পারছিল না। প্রথমার্ধের অতিরিক্ত সময়ে লাওতারো এবার সহায়তাকারীর ভূমিকায়। তাঁর নিখুঁত পাসে দি মারিয়া দৌড়ে গিয়ে দোনারুম্মার ওপর দিয়ে বল তুলে দেন। বিরতিতে আর্জেন্টিনা ২–০ এগিয়ে।"],
+["দ্বিতীয়ার্ধের নিয়ন্ত্রণ","ইতালি পরিবর্তন এনে ম্যাচে ফেরার চেষ্টা করে। কিন্তু আর্জেন্টিনা নিয়ন্ত্রণ হারায়নি। দোনারুম্মা মেসি ও দি মারিয়ার বিপজ্জনক প্রচেষ্টা ঠেকিয়ে কয়েকবার ইতালিকে বাঁচান।"],
+["শেষ স্পর্শ","ইতালি গোলের জন্য চেষ্টা করলেও আর্জেন্টিনা সুযোগ তৈরি করতে থাকে। অতিরিক্ত সময়ের ৪র্থ মিনিটে মেসিকে আটকানোর পর বলটি বক্সের বাইরে আসে, আর পাওলো দিবালা সেটি নিয়ে শান্তভাবে গোল করেন—৩–০।"],
+["মেসির পারফরম্যান্স","মেসি গোল না করলেও পুরো ম্যাচে তাঁর প্রভাব ছিল অসাধারণ। UEFA Technical Observer panel তাঁকেই Player of the Match নির্বাচিত করে। তাঁর পাসিং, মুভমেন্ট ও সুযোগ তৈরি করা ম্যাচের গতিপথে বড় ভূমিকা রাখে।"],
+["স্মৃতি","আর্জেন্টিনা ওয়েম্বলিতে ইতালিকে ৩–০ হারিয়ে পুনরুজ্জীবিত Finalissima-এর প্রথম চ্যাম্পিয়ন হয়। এই জয় দেখিয়ে দেয় দলটি শুধু টুর্নামেন্ট জিততে পারে না—বিশ্বমানের প্রতিপক্ষকেও নিয়ন্ত্রণ করতে পারে।"]
+]
+},
+
+
+{
+id:"wc-netherlands",
+comp:"FIFA WORLD CUP QATAR 2022",
+round:"QUARTER-FINAL · FEATURED",
+teams:"Netherlands 2 — 2 Argentina",
+score:"2–2 · 3–4 pens",
+date:"9 December 2022",
+venue:"Lusail Stadium · Lusail",
+
+photos:[
+"arg vs ned 3.jfif",
+"arg vs ned 2.jfif",
+"arg vs ned 1.webp",
+"arg vs ned.jfif"
+],
+
+teaser:
+"Argentina led 2–0, were dragged into extra-time drama by Wout Weghorst, then survived a penalty shootout.",
+
+moments:[
+["35'","Nahuel Molina scores after Messi's brilliant assist."],
+["73'","Messi converts a penalty for 2–0."],
+["83'","Wout Weghorst pulls one back."],
+["90+11'","Weghorst equalises with a late free-kick routine."],
+["PENS","Argentina win the shootout 4–3."]
+],
+
+en:[
+["A QUARTER-FINAL FULL OF TENSION","The Netherlands had reached the quarter-final with a disciplined, experienced side. Argentina had already recovered from the Saudi Arabia shock and survived Australia. Now the World Cup had entered its most unforgiving stage: one mistake could send them home."],
+["MOLINA BREAKS THE DEADLOCK","The Netherlands defended with numbers and made space difficult to find. Then Messi produced a moment of brilliance. He received the ball and threaded a perfectly weighted pass into the area for Nahuel Molina, who finished to make it 1–0 in the 35th minute."],
+["MESSI FROM THE SPOT","Argentina continued to look for the second goal. In the 73rd minute, Marcos Acuña was brought down in the area and Messi stepped up. He sent the penalty beyond Andries Noppert and Argentina appeared to have a comfortable 2–0 lead."],
+["WEGHORST CHANGES EVERYTHING","The Netherlands refused to surrender. Wout Weghorst pulled one back in the 83rd minute. Argentina were suddenly under pressure, and the game became increasingly emotional and physical."],
+["THE LAST-GASP EQUALISER","Deep into stoppage time, the Netherlands won a free-kick near the edge of the area. Instead of a normal shot, Teun Koopmeiners rolled the ball into Weghorst's path. Weghorst finished, making it 2–2 and sending the match into extra time."],
+["EXTRA TIME","Argentina had chances in extra time, but the Netherlands also threatened. Neither side could find the winning goal, so the quarter-final went to penalties."],
+["EMILIANO MARTÍNEZ AGAIN","The shootout became another stage for Emiliano Martínez. His presence and saves helped Argentina take control, and the Albiceleste won the shootout 4–3."],
+["THE MEMORY","It was messy, emotional and exhausting — but Argentina survived. The quarter-final became a defining example of the team's resilience before the semi-final against Croatia."]
+],
+
+bn:[
+["চাপের কোয়ার্টার-ফাইনাল","নেদারল্যান্ডস এসেছিল অভিজ্ঞ ও সংগঠিত দল নিয়ে। আর্জেন্টিনা সৌদি আরবের ধাক্কা সামলে অস্ট্রেলিয়াকে হারিয়ে কোয়ার্টার-ফাইনালে উঠেছিল। এখন ভুল করার সুযোগ প্রায় ছিল না—একটি ভুল মানেই বিশ্বকাপ শেষ।"],
+["মোলিনার গোলে এগিয়ে যাওয়া","নেদারল্যান্ডস অনেক খেলোয়াড় পেছনে রেখে জায়গা বন্ধ করে রেখেছিল। তখন মেসি তাঁর অসাধারণ দৃষ্টিশক্তি দেখান। তিনি বক্সে নিখুঁত একটি পাস দেন নাহুয়েল মোলিনাকে, আর ৩৫তম মিনিটে মোলিনা গোল করে আর্জেন্টিনাকে এগিয়ে দেন।"],
+["মেসির পেনাল্টি","দ্বিতীয় গোলের জন্য আর্জেন্টিনা চাপ বাড়ায়। ৭৩তম মিনিটে মার্কোস আকুনিয়াকে বক্সে ফাউল করা হলে মেসি পেনাল্টি নেন। তিনি গোল করে স্কোর ২–০ করেন এবং মনে হচ্ছিল আর্জেন্টিনা ম্যাচ নিয়ন্ত্রণে নিয়ে ফেলেছে।"],
+["ভেগহর্স্টের প্রত্যাবর্তন","নেদারল্যান্ডস হাল ছাড়েনি। ৮৩তম মিনিটে উট ভেগহর্স্ট একটি গোল করে ম্যাচে ফিরিয়ে আনে। হঠাৎ আর্জেন্টিনার ওপর চাপ বাড়তে থাকে এবং ম্যাচ আরও উত্তপ্ত হয়ে ওঠে।"],
+["শেষ মুহূর্তের সমতা","স্টপেজ টাইমের অনেক পরে নেদারল্যান্ডস বক্সের কাছে ফ্রি-কিক পায়। তেউন কুপমাইনার্স সরাসরি শট না নিয়ে বলটি ভেগহর্স্টের দিকে বাড়িয়ে দেন। ভেগহর্স্ট গোল করে ২–২ করেন। ম্যাচ চলে যায় অতিরিক্ত সময়ে।"],
+["অতিরিক্ত সময়","অতিরিক্ত সময়ে দুই দলই জয়ের সুযোগ তৈরি করে। কিন্তু কেউ গোল করতে পারেনি। ফলে কোয়ার্টার-ফাইনালের ভাগ্য নির্ধারণ হয় পেনাল্টি শুটআউটে।"],
+["আবারও এমিলিয়ানো মার্তিনেজ","শুটআউট মানেই আবার এমিলিয়ানো মার্তিনেজের মঞ্চ। তাঁর সেভ এবং আত্মবিশ্বাস আর্জেন্টিনাকে এগিয়ে দেয়। শেষ পর্যন্ত আর্জেন্টিনা ৪–৩ ব্যবধানে শুটআউট জিতে সেমিফাইনালে যায়।"],
+["স্মৃতি","ম্যাচটি ছিল বিশৃঙ্খল, আবেগপূর্ণ এবং ক্লান্তিকর—কিন্তু আর্জেন্টিনা টিকে যায়। এই ম্যাচই তাদের মানসিক শক্তির অন্যতম বড় প্রমাণ হয়ে থাকে।"]
+]
+},
+
+
+{
+id:"wc-croatia",
+comp:"FIFA WORLD CUP QATAR 2022",
+round:"SEMI-FINAL · FEATURED",
+teams:"Argentina 3 — 0 Croatia",
+score:"3–0",
+date:"13 December 2022",
+venue:"Lusail Stadium · Lusail",
+
+photos:[
+"arg vs cro 3.jfif",
+"arg vs cro 1.jpg",
+"arg vs cro.jpg"
+],
+
+teaser:
+"Messi and Julián Álvarez inspired a commanding semi-final victory that sent Argentina back to the World Cup final.",
+
+moments:[
+["34'","Messi converts a penalty."],
+["39'","Julián Álvarez scores after a spectacular run."],
+["69'","Messi beats Gvardiol and creates Álvarez's second."],
+["FT","Argentina win 3–0 and reach the final."]
+],
+
+en:[
+["THE SEMI-FINAL","Croatia had eliminated Brazil in the previous round and had become specialists in surviving knockout matches. Luka Modrić and his teammates represented a huge tactical and technical challenge. Argentina knew one more complete performance would take them back to the World Cup final."],
+["MESSI OPENS THE DOOR","The first half was tight until Julián Álvarez broke into the area and was brought down. Messi stepped up for the penalty and calmly converted in the 34th minute. Argentina had the lead."],
+["ÁLVAREZ'S INCREDIBLE RUN","Only five minutes later, Argentina struck again. Álvarez collected the ball deep, drove forward and somehow kept the ball through a series of deflections and challenges before finishing. It was one of the tournament's most memorable individual efforts."],
+["CROATIA HAVE NO ANSWER","Croatia tried to regain control through possession, but Argentina's defensive organisation and midfield intensity made it difficult. The 2–0 lead gave Scaloni's team room to manage the match."],
+["THE CAPTAIN CREATES THE THIRD","In the 69th minute, Messi produced another iconic World Cup moment. Starting on the right, he attacked Joško Gvardiol, repeatedly changed direction and burst past him before cutting the ball back for Álvarez. The striker finished to make it 3–0."],
+["THE FINAL WHISTLE","Croatia could not find a response. Argentina won 3–0 and reached the World Cup final. Messi had scored, assisted and controlled the match, while Álvarez had delivered a two-goal performance."],
+["WHY IT MATTERED","The semi-final was different from the Netherlands thriller. There was no late collapse, no penalty shootout and no chaos. Argentina controlled the match and showed the maturity of a team that believed it belonged in the final."],
+["THE MEMORY","The final was waiting. One match remained between Messi, his teammates and the World Cup. The journey from the Saudi Arabia defeat had reached its last step."]
+],
+
+bn:[
+["সেমিফাইনালের মঞ্চ","ক্রোয়েশিয়া আগের রাউন্ডে ব্রাজিলকে বিদায় করে এসেছিল এবং নকআউট ম্যাচে টিকে থাকার অসাধারণ অভিজ্ঞতা তাদের ছিল। লুকা মদরিচ ও তাঁর সতীর্থরা ছিল বড় কৌশলগত চ্যালেঞ্জ। আর্জেন্টিনা জানত, আরেকটি সম্পূর্ণ পারফরম্যান্সই তাদের ফাইনালে নিয়ে যাবে।"],
+["মেসি দরজা খুললেন","প্রথমার্ধের লড়াই ছিল বেশ সমান। এরপর হুলিয়ান আলভারেজ বক্সে ঢুকে ফাউলের শিকার হন। ৩৪তম মিনিটে মেসি পেনাল্টি নিয়ে ঠান্ডা মাথায় গোল করেন। আর্জেন্টিনা ১–০ এগিয়ে যায়।"],
+["আলভারেজের অবিশ্বাস্য দৌড়","মাত্র পাঁচ মিনিট পর আর্জেন্টিনা আবার গোল করে। আলভারেজ অনেকটা পেছন থেকে বল নিয়ে সামনে ছুটতে থাকেন এবং একের পর এক ডিফেন্ডারের চ্যালেঞ্জ ও বলের রিবাউন্ড সামলেও এগিয়ে যান। শেষ পর্যন্ত তিনি গোল করে ২–০ করেন। এটি টুর্নামেন্টের অন্যতম স্মরণীয় ব্যক্তিগত প্রচেষ্টা হয়ে যায়।"],
+["ক্রোয়েশিয়ার উত্তর নেই","ক্রোয়েশিয়া বল দখলের মাধ্যমে ম্যাচে ফেরার চেষ্টা করলেও আর্জেন্টিনার সংগঠিত রক্ষণ ও মিডফিল্ডের তীব্রতা তাদের সুযোগ কমিয়ে দেয়। ২–০ লিড থাকায় স্কালোনির দল ম্যাচ পরিচালনা করতে পারে।"],
+["অধিনায়কের তৃতীয় গোল বানানো","৬৯তম মিনিটে মেসি আবারও নিজের শ্রেষ্ঠত্ব দেখান। ডান দিক থেকে তিনি জোশকো গভারদিওলের সামনে ড্রিবল করে দিক পরিবর্তন করে বেরিয়ে যান এবং বক্সে বল কাটব্যাক করেন। আলভারেজ বল জালে পাঠিয়ে ৩–০ করেন।"],
+["শেষ বাঁশি","ক্রোয়েশিয়া আর ফিরতে পারেনি। আর্জেন্টিনা ৩–০ জিতে বিশ্বকাপ ফাইনালে উঠে যায়। মেসি গোল ও অ্যাসিস্ট—দুই ভূমিকাতেই ছিলেন, আর আলভারেজ করেন জোড়া গোল।"],
+["কেন গুরুত্বপূর্ণ","নেদারল্যান্ডসের ম্যাচের মতো এখানে শেষ মুহূর্তের ধাক্কা বা পেনাল্টি শুটআউট ছিল না। আর্জেন্টিনা পুরো ম্যাচ নিয়ন্ত্রণ করে দেখিয়ে দেয় যে তারা ফাইনালে যাওয়ার মতো পরিণত দল।"],
+["স্মৃতি","ফাইনাল এখন সামনে। মেসি ও তাঁর সতীর্থদের সামনে বিশ্বকাপ থেকে মাত্র এক ম্যাচ দূরত্ব। সৌদি আরবের সেই ধাক্কা থেকে শুরু হওয়া যাত্রা এবার শেষ ধাপে পৌঁছেছে।"]
+]
+},
+
+
+{
+id:"wc-final",
+comp:"FIFA WORLD CUP QATAR 2022",
+round:"FINAL · FEATURED",
+teams:"Argentina 3 — 3 France",
+score:"3–3 · 4–2 pens",
+date:"18 December 2022",
+venue:"Lusail Stadium · Lusail",
+
+photos:[
+"arg vs fra 3.jpg",
+"arg vs fra 2.webp",
+"arg vs fra 1.webp",
+"arg vs fra.jfif"
+],
+
+teaser:
+"In the greatest final ever played, Argentina led twice, endured Kylian Mbappé's hat-trick, then conquered the world in a penalty shootout.",
+
+moments:[
+["23'","Lionel Messi scores from the penalty spot."],
+["36'","Ángel Di María finishes a breathtaking team counter-attack."],
+["80'-81'","Kylian Mbappé scores twice in two minutes to force extra time."],
+["108'","Messi scores his second to restore the lead."],
+["118'","Mbappé completes his hat-trick with another penalty."],
+["PENS","Emi Martínez shines as Argentina win the shootout 4–2."]
+],
+
+en:[
+["THE GREATEST FINAL EVER PLAYED","The Lusail Stadium played host to the most dramatic football match in history. Argentina faced defending champions France in a duel that would decide the fate of Lionel Messi's legacy and crown the champions of the world."],
+["FIRST-HALF DOMINANCE","Argentina started with relentless aggression and tactical brilliance. Ángel Di María was brought down in the box, allowing Messi to open the scoring from the penalty spot in the 23rd minute. Thirteen minutes later, Argentina executed a masterclass counter-attack, swept forward in five touches, and Di María clipped in a stunning second."],
+["THE FRENCH STORM","For 80 minutes, France had no answers. Then, Kylian Mbappé dramatically converted a penalty in the 80th minute, and just 97 seconds later, struck a magnificent volley to instantly tie the match at 2–2, plunging the game into extra time."],
+["EXTRA TIME DRAMA","The physical and emotional intensity reached unimaginable levels. In the 108th minute, Messi pounced on a rebound to score his second and make it 3–3. Yet France fought back again, winning a late penalty that Mbappé converted to complete his historic hat-trick."],
+["THE MIRACLE SAVE","In the 123rd minute, Randal Kolo Muani found himself one-on-one with Emiliano Martínez. Dibu produced the most iconic save in football history with his left leg extended, preventing ultimate heartbreak and forcing penalties."],
+["THE SHOOTOUT & CROWN","Emi Martínez saved Kingsley Coman's penalty, Aurelien Tchouameni dragged his wide, and Gonzalo Montiel buried the final spot-kick. Argentina won 4–2 on penalties to become world champions."],
+["THE ULTIMATE MEMORY","Lionel Messi finally lifted the World Cup trophy draped in a Bisht, completing the game of football and immortalizing this team as legends of Argentina."]
+],
+
+bn:[
+["ইতিহাসের সেরা ফাইনাল","লুসাইল স্টেডিয়াম ছিল ফুটবল ইতিহাসের সবচেয়ে রোমাঞ্চকর ম্যাচের সাক্ষী। বিশ্বচ্যাম্পিয়ন হওয়ার লড়াইয়ে বর্তমান চ্যাম্পিয়ন ফ্রান্সের মুখোমুখি হয়েছিল আর্জেন্টিনা। এ ম্যাচ ছিল লিওনেল মেসির মহাকাব্যিক ক্যারিয়ারের শেষ পূর্ণতা দেওয়ার মঞ্চ।"],
+["প্রথমার্ধে আর্জেন্টিনার আধিপত্য","আর্জেন্টিনা শুরু থেকেই আক্রমণাত্মক ও কৌশলগতভাবে নিখুঁত ফুটবল উপহার দেয়। ২৩তম মিনিটে অ্যাঞ্জেল দি মারিয়া বক্সে ফাউলের শিকার হলে মেসি পেনাল্টি থেকে দলকে এগিয়ে নেন। এর ১৩ মিনিট পর এক দুর্দান্ত কাউন্টার অ্যাটাক থেকে দি মারিয়া অসাধারণ গোল করে ব্যবধান ২–০ করেন।"],
+["ফরাসি ঝড়","৮০ মিনিট পর্যন্ত ফ্রান্স সম্পূর্ণ কোণঠাসা ছিল। কিন্তু ৮০তম মিনিটে পেনাল্টি থেকে গোল করার পর, মাত্র ৯৭ সেকেন্ডের ব্যবধানে কিলিয়ান এমবাপ্পে এক দুর্দান্ত ভলিতে ম্যাচ ২–২ সমতায় ফেরান এবং খেলা অতিরিক্ত সময়ে গড়ায়।"],
+["অতিরিক্ত সময়ের নাটকীয়তা","অতিরিক্ত সময়ে ম্যাচের উত্তেজনা চরম সীমায় পৌঁছায়। ১০৮তম মিনিটে মেসি নিখুঁত ফিনিশিংয়ে নিজের দ্বিতীয় গোল করে আর্জেন্টিনাকে ৩–২ ব্যবধানে এগিয়ে নেন। কিন্তু ১১৮তম মিনিটে আবার পেনাল্টি পেয়ে এমবাপ্পে তাঁর হ্যাট্রিক পূরণ করেন এবং ম্যাচ ৩–৩ করেন।"],
+["মার্তিনেজের মহাকাব্যিক সেভ","১২৩তম মিনিটে র্যান্ডাল কোলো মুয়ানি একা পেয়ে গিয়েছিলেন আর্জেন্টিনার গোলরক্ষককে। কিন্তু এমিলিয়ানো মার্তিনেজ তাঁর প্রসারিত বাঁ পা দিয়ে ইতিহাসের সবচেয়ে গুরুত্বপূর্ণ সেভটি করে আর্জেন্টিনাকে বাঁচান।"],
+["টাইব্রেকার ও বিশ্বজয়","টাইব্রেকারে মার্তিনেজ কিংসলে কোমানের শট আটকে দেন এবং চুয়ামেনি শট বাইরে মারেন। শেষ শটে গনজালো মন্তিয়েল গোল করে আর্জেন্টিনাকে ৪–২ ব্যবধানে বিশ্বচ্যাম্পিয়ন করেন।"],
+["সর্বোচ্চ সম্মান","অবশেষে লিওনেল মেসি ট্রফি উঁচিয়ে ধরেন, যা তাঁর অমর ক্যারিয়ারকে পূর্ণতা দেয়। ৩৬ বছর পর বিশ্বসেরার মুকুট ফিরে পায় আর্জেন্টিনা।"]
+]
+}
+
+];
+
+
+/* =========================================================
+   MATCH CARD
+========================================================= */
+
+function card(x){
+
+return `
+<article class="card feature" onclick="openMatch('${x.id}')">
+
+<div class="round">
+${x.round}
+</div>
+
+<div class="teams">
+${x.teams}
+</div>
+
+<div class="score">
+${x.score}
+</div>
+
+<div class="venue">
+${x.date} · ${x.venue}
+</div>
+
+<p class="teaser">
+${x.teaser}
+</p>
+
+<div class="open">
+OPEN FULL STORY →
+</div>
+
+</article>
+`;
+
+}
+
+
+/* =========================================================
+   HOME RENDER
+========================================================= */
+
+function render(){
+
+document.getElementById("copaGrid").innerHTML=card(DATA[0]);
+
+document.getElementById("finalGrid").innerHTML=card(DATA[1]);
+
+document.getElementById("wcGrid").innerHTML=
+DATA.slice(2).map(card).join("");
+
+}
+
+
+/* =========================================================
+   CURRENT MATCH / LANGUAGE
+========================================================= */
+
+let current=null;
+let lang="en";
+
+
+/* =========================================================
+   OPEN MATCH
+========================================================= */
+
+function openMatch(id){
+
+current=DATA.find(x=>x.id===id);
+
+if(!current)return;
+
+const v=document.getElementById("matchView");
+
+document.getElementById("homeView").classList.add("hidden");
+
+v.classList.remove("hidden");
+
+
+const i=DATA.indexOf(current);
+
+const prev=DATA[i-1];
+
+const next=DATA[i+1];
+
+
+/* BUILD GALLERY */
+
+const galleryHTML=current.photos.map((file,index)=>{
+
+return `
+<div class="photo">
+
+<img
+src="images/${current.id}/${file}"
+alt="${current.teams} — Photo ${index+1}"
+onerror="this.remove();this.parentElement.innerHTML='IMAGE NOT FOUND<br><small>${file}</small>'"
+>
+
+</div>
+`;
+
+}).join("");
+
+
+v.innerHTML=`
+
+<div class="matchHero">
+
+<div class="matchHeroIn reveal">
+
+<button class="back" onclick="home()">
+← BACK TO ARGENTINA'S MEMORY
+</button>
+
+<div class="eyebrow">
+${current.comp}
+</div>
+
+<div class="matchTitle">
+${current.teams.replace(
+" — ",
+" <span>—</span> "
+)}
+</div>
+
+<div class="result">
+
+<div class="resultScore">
+${current.score}
+</div>
+
+<div class="badge">
+${current.round}
+</div>
+
+</div>
+
+<div class="meta">
+
+<span>
+📅 ${current.date}
+</span>
+
+<span>
+📍 ${current.venue}
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<article class="story reveal">
+
+<div class="storyTop">
+
+<h2>
+THE STORY
+</h2>
+
+<div class="lang">
+
+<button
+id="enBtn"
+class="active"
+onclick="setLang('en')">
+ENGLISH
+</button>
+
+<button
+id="bnBtn"
+onclick="setLang('bn')">
+বাংলা
+</button>
+
+</div>
+
+</div>
+
+
+<div id="storyContent"></div>
+
+
+<div class="moments">
+
+${current.moments.map(m=>`
+
+<div class="moment">
+
+<b>
+${m[0]}
+</b>
+
+<span>
+${m[1]}
+</span>
+
+</div>
+
+`).join("")}
+
+</div>
+
+
+<div class="gallery">
+
+<h2>
+MATCH GALLERY
+</h2>
+
+<p>
+Your match memories ·
+<b>
+images/${current.id}/
+</b>
+</p>
+
+<div class="photos">
+
+${galleryHTML}
+
+</div>
+
+</div>
+
+</article>
+
+
+<div class="next">
+
+${
+prev
+?
+`<button onclick="openMatch('${prev.id}')">
+← ${prev.teams}
+</button>`
+:
+`<span></span>`
+}
+
+
+${
+next
+?
+`<button onclick="openMatch('${next.id}')">
+${next.teams} →
+</button>`
+:
+`<span></span>`
+}
+
+</div>
+
+
+<footer>
+ARGENTINA'S MEMORY ·
+<strong>DEVELOPED BY ELITE HASIB</strong>
+</footer>
+
+`;
+
+
+setLang("en");
+
+window.scrollTo(0,0);
+
+initObserver();
+
+}
+
+
+/* =========================================================
+   LANGUAGE SWITCH
+========================================================= */
+
+function setLang(l){
+
+lang=l;
+
+document.getElementById("storyContent").innerHTML=
+
+current[l]
+.map(s=>`
+
+<h3>
+${s[0]}
+</h3>
+
+<p>
+${s[1]}
+</p>
+
+`)
+.join("");
+
+
+document.getElementById("enBtn")
+.classList.toggle("active",l==="en");
+
+document.getElementById("bnBtn")
+.classList.toggle("active",l==="bn");
+
+}
+
+
+/* =========================================================
+   HOME
+========================================================= */
+
+function home(){
+
+document
+.getElementById("matchView")
+.classList.add("hidden");
+
+document
+.getElementById("homeView")
+.classList.remove("hidden");
+
+window.scrollTo(0,0);
+
+initObserver();
+
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+function go(id){
+
+home();
+
+setTimeout(()=>{
+
+document
+.getElementById(id)
+?.scrollIntoView({
+behavior:"smooth"
+});
+
+},40);
+
+}
+
+
+/* =========================================================
+   SCROLL ANIMATION
+========================================================= */
+
+function initObserver(){
+
+const observer=new IntersectionObserver(
+
+(entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("active");
+
+}
+
+});
+
+},
+
+{
+threshold:.1
+}
+
+);
+
+
+document
+.querySelectorAll(".reveal")
+.forEach(el=>observer.observe(el));
+
+}
+
+
+/* =========================================================
+   START
+========================================================= */
+
+render();
+
+window.addEventListener(
+"DOMContentLoaded",
+initObserver
+);
+
+</script>
+
+</body>
+</html>
+```
